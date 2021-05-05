@@ -3,6 +3,9 @@
  */
 
 // Require --------------------------------------------------------------------
+if (process.env.NODE_ENV !== 'prod') {
+    require('dotenv').config();
+}
 
 const ejsMate = require('ejs-mate');
 const express = require('express');

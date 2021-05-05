@@ -1,44 +1,53 @@
 <% layout('layouts/boilerplate') %>
     <link rel="stylesheet" href="/stylesheet/stars.css">
+
     <div class="row mb-5">
         <div class="col-6">
+            <div id='map' style='width: 400px; height: 300px;'></div>
             <div class="card">
-                <img src="<%= campground.image%> " class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title d-flex justify-content-between">
-                        <%= campground.title %>
-                    </h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Posted by <%= campground.author.username %>
-                    </h6>
-                    <p class="card-text">S<%= campground.description%>
-                    </p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <%= campground.location %>
-                    </li>
+                <% for (let img of campground.images) {%>
+                    <% if (img.url) { %>
+                        <img src="<%= img.url %>" class="card-img-top" alt="...">
+                        <% } else { %>
+                            <img src="https://source.unsplash.com/collection/483251" class="card-img-top" alt="...">
+                            <% } }%>
+                                <div class="card-body">
+                                    <h5 class="card-title d-flex justify-content-between">
+                                        <%= campground.title %>
+                                    </h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Posted by <%= campground.author.username
+                                            %>
+                                    </h6>
+                                    <p class="card-text">S<%= campground.description%>
+                                    </p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <%= campground.location %>
+                                    </li>
 
-                    <li class="list-group-item">$<%= campground.price %>/night</li>
-                </ul>
-                <% if (currentUser && campground.author.equals(currentUser)) { %>
-                    <div class="card-body">
-                        <a class="card-link btn btn-outline-info"
-                            href="/campgrounds/<%= campground._id %>/edit">Edit</a>
-                        <form class="d-inline" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
-                            <button class="btn btn-outline-warning">Delete</button>
-                        </form>
-                    </div>
-                    <% } %>
-                        <div class="card-footer text-muted d-flex justify-content-between">
-                            <span class="text-start">
-                                <a>
-                                    Added <%= Math.floor(Math.random() * 10) + 2 %> days ago
-                                </a>
-                            </span>
-                            <span class="ml-auto">
-                                <a href="/campgrounds">Back to all Campgrounds</a>
-                            </span>
-                        </div>
+                                    <li class="list-group-item">$<%= campground.price %>/night</li>
+                                </ul>
+                                <% if (currentUser && campground.author.equals(currentUser)) { %>
+                                    <div class="card-body">
+                                        <a class="card-link btn btn-outline-info"
+                                            href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+                                        <form class="d-inline"
+                                            action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+                                            <button class="btn btn-outline-warning">Delete</button>
+                                        </form>
+                                    </div>
+                                    <% } %>
+                                        <div class="card-footer text-muted d-flex justify-content-between">
+                                            <span class="text-start">
+                                                <a>
+                                                    Added <%= Math.floor(Math.random() * 10) + 2 %> days ago
+                                                </a>
+                                            </span>
+                                            <span class="ml-auto">
+                                                <a href="/campgrounds">Back to all Campgrounds</a>
+                                            </span>
+                                        </div>
             </div>
         </div>
         <div class="col-6">
@@ -91,3 +100,10 @@
             </div>
         </div>
     </div>
+    <script>
+        const mapToken = '<%- process.env.MAPBOX_TOKEN %>';
+    </script>
+    <script>
+        const loc = [<%=campground.geometry.coordinates %>];
+    </script>
+    <script src="/js/showMap.js"></script>
