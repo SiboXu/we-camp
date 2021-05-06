@@ -90,6 +90,12 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
+const Campground = require('./models/campground');
+app.get('/explore', async (req, res) => {
+    const campgrounds = await Campground.find({});
+    res.render('explore', {campgrounds});
+});
+
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found!', 404));
 });

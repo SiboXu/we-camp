@@ -1,0 +1,40 @@
+<% layout('layouts/boilerplate') %>
+<div class="container py-4">
+    <div class="p-5 mb-4 bg-light rounded-3" 
+    style="background-image: url('https://res.cloudinary.com/sxu/image/upload/v1620241242/WeCamp/s2kxekojxq59b7f7cyed.jpg');
+    background-position: center;">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">
+                <%= campgrounds[0].title %> 
+            </h1>
+            <p class="col-md-8 fs-4">
+                <%= campgrounds[0].description %> 
+            </p>
+            <a href="/campgrounds/<%= campgrounds[0].id %>" class="btn btn-primary btn-lg">View
+                Campground</a>
+            <!-- <button class="btn btn-primary btn-lg" type="button">Explore Campground</button> -->
+        </div>
+    </div>
+
+    <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+            <div class="h-100 p-5 text-white bg-dark rounded-3">
+                <h2>
+                    <%= campgrounds[1].title %> 
+                </h2>
+                <p><%= campgrounds[1].description %> </p>
+                    <a href="/campgrounds/<%= campgrounds[1].id %>" class="btn btn-primary btn-lg">View
+                        Campground</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+                <h2>
+                    <%= campgrounds[2].title %> 
+                </h2>
+                <p><%= campgrounds[2].description %> </p>
+                    <a href="/campgrounds/<%= campgrounds[2].id %>" class="btn btn-primary btn-lg">View
+                        Campground</a>
+            </div>
+        </div>
+    </div>

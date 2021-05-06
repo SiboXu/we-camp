@@ -1,14 +1,21 @@
 <% layout('layouts/boilerplate') %>
-    <div id="map" style="width: 100%; height: 500px"></div>
-    <h1>All Campgrounds</h1>
-    <div>
+<figure class="text-center">
+    <blockquote class="blockquote">
+      <p><h1 >Find Your Next Campground</h1></p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+      <cite title="Source Title">Click on the map or View Campground</cite>
+    </figcaption>
+  </figure>
+    <div class="mt-2" id="map" style="width: 100%; height: 500px"></div>
+    <div class="mt-3 mb-3">
         <a href="/campgrounds/new">Add Campground</a>
     </div>
     <script>
-        const campgrounds={ features: <%- JSON.stringify(campgrounds)%>};
+        const campgrounds = { features: <%- JSON.stringify(campgrounds) %>};
     </script>
     <script>
-        const mapToken='<%- process.env.MAPBOX_TOKEN %>';
+        const mapToken = '<%- process.env.MAPBOX_TOKEN %>';
     </script>
     <script src="/js/indexMap.js"></script>
 
