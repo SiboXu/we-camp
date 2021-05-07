@@ -17,13 +17,15 @@ const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
+const MongoDBStore = require('connect-mongo')(session);
 
 const ExpressError = require('./utils/ExpressError');
 
 
 // Database -------------------------------------------------------------------
-
-mongoose.connect('mongodb://localhost:27017/WeCamp', {
+const dbUrl = process.env.DB;
+// const dbUrl = 'mongodb://localhost:27017/WeCamp';
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -46,10 +48,23 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(mehtodOverride('_method'));
+const SECRET = process.env.SECRET || 'thisshouldbebetter';
+
+const store = new MongoDBStore({
+    url: dbUrl,
+    secret: SECRET,
+    touchAfter: 24 * 60 * 60
+});
+
+store.on('error', function (e) {
+    console.log('Session store errors!', e)
+});
 
 
 const sessionConfig = {
-    secret: 'thisshouldbebetter',
+    store,
+    name: 'session',
+    secret: SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -91,6 +106,7 @@ app.get('/', (req, res) => {
 });
 
 const Campground = require('./models/campground');
+
 app.get('/explore', async (req, res) => {
     const campgrounds = await Campground.find({});
     res.render('explore', {campgrounds});

@@ -1,23 +1,23 @@
-<nav class="navbar d-flex sticky-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar d-flex sticky-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid d-flex col-8">
-        <a class="navbar-brand" href="#">WeCamp</a>
+        <a class="navbar-brand" href="/">WeCamp</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse d-flex col-8 justify-content-between" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
+        <div class="container collapse navbar-collapse d-flex col-8 justify-content-between" id="navbarNavAltMarkup">
+            <div class="navbar-nav col-10 justify-content-center">
                 <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="/explore">Explore</a>
                 <a class="nav-link" href="/campgrounds">Campgrounds</a>
                 <a class="nav-link" href="/campgrounds/new">New Campground</a>
+                <a class="nav-link" href="/explore">Weekly Best</a>
             </div>
             <div class="navbar-nav ml-auto">
                 <% if(!currentUser) {%>
-                    <a href="/login" class="nav-link btn btn-primary text-white me-2">Login</a>
-                    <a href="/register" class="nav-link btn btn-primary text-white">Register</a>
+                    <a href="/login" class="nav-link btn-sm btn-primary text-white me-2">Login</a>
+                    <a href="/register" class="nav-link btn-sm btn-primary text-white">Register</a>
                     <% } else { %>
-                        <a href="/logout" class="nav-link btn btn-danger text-white">Logout</a>
+                        <a href="/logout" class="nav-link btn-sm btn-danger text-white">Logout</a>
                         <% } %>
             </div>
         </div>

@@ -10,7 +10,9 @@ const { places, descriptors } = require('./camps');
 
 
 // Database -------------------------------------------------------------------
-mongoose.connect('mongodb://localhost:27017/WeCamp', {
+const dbUrl = process.env.DB
+// mongodb://localhost:27017/WeCamp
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
@@ -46,7 +48,7 @@ const seedDB = async () => {
                     filename: 'WeCamp/s2kxekojxq59b7f7cyed'
                 }
             ],
-            description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum at voluptas reiciendis, molestiae ipsum quidem temporibus nesciunt explicabo libero quisquam rerum. Eligendi quod quam magni incidunt minima quaerat odit voluptatum.',
+            description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum at voluptas reiciendis, molestiae ipsum quidem temporibus nesciunt explicabo libero quisquam rerum. Eligendi quod quam magni incidunt minima quaerat odit voluptatum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum at voluptas reiciendis, molestiae ipsum quidem temporibus nesciunt explicabo libero quisquam rerum. Eligendi quod quam magni incidunt minima quaerat odit voluptatum.',
             price
         });
         await camp.save();
