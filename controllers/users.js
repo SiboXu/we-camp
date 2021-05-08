@@ -1,4 +1,15 @@
+/**
+ * The user route controllers.
+ */
+
+// Require --------------------------------------------------------------------
+
+
 const User = require('../models/user');
+
+
+// ----------------------------------------------------------------------------
+
 
 module.exports.userRender = (req, res) => {
     res.render('users/register');
@@ -6,6 +17,7 @@ module.exports.userRender = (req, res) => {
 
 module.exports.register = async (req, res, next) => {
     try {
+        console.log(req)
         const { email, username, password } = req.body;
         const user = new User({ email, username });
         const registeredUser = await User.register(user, password);

@@ -16,9 +16,7 @@ router.get('/login', (req, res) => {
 router.post(
     '/login', passport.authenticate(
         'local', { failureFlash: true, failureRedirect: '/login' }
-    ), catchAsync(
-        users.loginRender
-    ));
+    ), users.loginRender);
 
 router.get('/logout', users.logout);
 

@@ -1,6 +1,7 @@
 /**
  * Mongo Campground Model.
  */
+
 const mongoose = require('mongoose');
 const Review = require('./review');
 const Schema = mongoose.Schema;

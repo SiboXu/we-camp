@@ -10,12 +10,12 @@ const { places, descriptors } = require('./camps');
 
 
 // Database -------------------------------------------------------------------
-const dbUrl = process.env.DB
-// mongodb://localhost:27017/WeCamp
+const dbUrl = process.env.DB;
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
 });
 
 const db = mongoose.connection;
@@ -28,11 +28,11 @@ const sample = array => array[Math.floor(Math.random() * array.length)];
 
 const seedDB = async () => {
     await Campground.deleteMany({});
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 250; i++) {
         const idx = Math.floor(Math.random() * 1000);
         const price = Math.floor(Math.random() * 20) + 10;
         const camp = new Campground({
-            author: '6091c54397f6a90603020249',
+            author: '609560c19f04e7704d5c0cef',
             geometry: {
                 type: 'Point',
                 coordinates: [

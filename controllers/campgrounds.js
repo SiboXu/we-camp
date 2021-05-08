@@ -1,8 +1,20 @@
-const Campground = require('../models/campground');
+/**
+ * The campgrounds route controllers.
+ */
+
+
+// Require --------------------------------------------------------------------
+
 
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 const mapBoxToken = process.env.MAPBOX_TOKEN;
 const geocoder = mbxGeocoding({ accessToken: mapBoxToken });
+
+const Campground = require('../models/campground');
+
+
+// ----------------------------------------------------------------------------
+
 
 module.exports.index = async (req, res) => {
     const campgrounds = await Campground.find({});
