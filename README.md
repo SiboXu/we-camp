@@ -28,14 +28,14 @@ You can try to create your own user and test with the functionality of the websi
   
 ## Stacks
 
-### Front end
+### Front-end
 * [HTML](https://en.wikipedia.org/wiki/HTML5)
 
 * [Bootstrap](https://getbootstrap.com)
 
 * [ejs](https://ejs.co/)
 
-### Back End
+### Back-End
 * [Node. js](https://nodejs.org)
 
 * [Express. js](https://expressjs.com)
