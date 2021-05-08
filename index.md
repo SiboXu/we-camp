@@ -1,37 +1,71 @@
-## Welcome to GitHub Pages
+# WeCamp
 
-You can use the [editor on GitHub](https://github.com/SiboXu/we-camp/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+WeCamp is a web application where users can create and review campgrounds. In order to review or create a campground, you must have an account.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+![Home Page](./screenshots/homepage.png)
+![Map Page](./screenshots/campgrounds.png)
+![Show Page](./screenshots/showpage.png)
 
-### Markdown
+## Explore the APP!
+> See this app in action at [https://thewecamp.herokuapp.com/](https://thewecamp.herokuapp.com/) <br>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+***\**NOTE: It may take a few seconds to load the website since the Heruko platform features limitation, please be patient!***
 
-```markdown
-Syntax highlighted code block
+You can try to create your own user and test with the functionality of the website, your data will not be used for any other purpose excpet for authentication of the website.
 
-# Header 1
-## Header 2
-### Header 3
+## Features
+* Basic view
+  * Users can create, edit, and remove campgrounds.
+  * Users can leave reviews on campgrounds' show page.
+  * Users can view the best rated websites of the week.
+  
+* Authentication
+  * Users can sign up or login using username and password.
+  * User can not submit campgrounds if they are not logged in.
 
-- Bulleted
-- List
+* Authorization
+  * User can only modify campgrounds created by them.
+  
+## Stacks
 
-1. Numbered
-2. List
+### Front end
+* [HTML](https://en.wikipedia.org/wiki/HTML5)
 
-**Bold** and _Italic_ and `Code` text
+* [Bootstrap](https://getbootstrap.com)
 
-[Link](url) and ![Image](src)
-```
+* [ejs](https://ejs.co/)
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Back End
+* [Node. js](https://nodejs.org)
 
-### Jekyll Themes
+* [Express. js](https://expressjs.com)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/SiboXu/we-camp/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+* [MongoDB](https://www.mongodb.com/)
 
-### Support or Contact
+* [passport](http://www.passportjs.org/)
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+* [passport-local](https://github.com/jaredhanson/passport-local#passport-local)
+
+* [express-session](https://github.com/expressjs/session#express-session)
+
+* [method-override](https://github.com/expressjs/method-override#method-override)
+
+* [connect-flash](https://github.com/jaredhanson/connect-flash#connect-flash)
+
+* [dotenv](https://www.npmjs.com/package/dotenv)
+
+* [body-parser](https://www.npmjs.com/package/body-parser)
+
+* [connect-mongo](https://www.npmjs.com/package/connect-mongo)
+
+### Database
+* [mongoose](http://mongoosejs.com/)
+
+### Map
+* [Mapbox](https://www.mapbox.com/)
+
+### Image Storage
+* [Cloudinary](https://cloudinary.com/)
+
+### Deployment
+* [Heroku](https://www.heroku.com/)
