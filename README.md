@@ -4,6 +4,7 @@ WeCamp is a web application where users can create and review campgrounds. In or
 
 ## Explore the APP!
 > See this app in action at [https://thewecamp.herokuapp.com/](https://thewecamp.herokuapp.com/) <br>
+
 ***\**NOTE: It may take a few seconds to load the website since the Heruko platform features limitation, please be patient!***
 
 ![Home Page](./screenshots/homepage.png)
